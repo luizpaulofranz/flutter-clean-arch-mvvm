@@ -1,10 +1,14 @@
-# countries_app
+# Countries App
 
-A new Flutter project.
+This is a study Flutter project with a proposal for a Clean Arch approach based on the [Reso Coder Clean Arch](https://resocoder.com/flutter-clean-architecture-tdd/) approach and an MVVM approach in the presentation Layer.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
+
+run: `flutter run`
+
+We are consuming the public API https://restcountries.com/
 
 A few resources to get you started if this is your first Flutter project:
 
