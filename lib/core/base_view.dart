@@ -9,12 +9,18 @@ class BaseView<T extends BaseViewModel> extends StatelessWidget {
     T viewModel,
     Widget? child,
   ) builder;
-  const BaseView({super.key, required this.builder});
+
+  final Function(T viewModel)? onViewModelReady;
+
+  const BaseView({super.key, required this.builder, this.onViewModelReady});
 
   @override
   Widget build(BuildContext context) {
     final viewModel = locator<T>();
     viewModel.init();
+    if (onViewModelReady != null) {
+      onViewModelReady!(viewModel);
+    }
     return ChangeNotifierProvider.value(
       value: viewModel,
       child: Consumer<T>(builder: builder),

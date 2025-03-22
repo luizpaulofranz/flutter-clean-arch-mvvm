@@ -17,4 +17,15 @@ class CountryRepoImpl implements CountryRepo {
       return Error(e.toString());
     }
   }
+
+  @override
+  Future<RequestResult<CountryModel>> getCountryByName(String name) async {
+    try {
+      final country = await dataSource.getCountryByName(name);
+      if (country == null) return Error("Country not found");
+      return Success(country);
+    } catch (e) {
+      return Error(e.toString());
+    }
+  }
 }

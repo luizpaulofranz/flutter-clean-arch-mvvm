@@ -12,7 +12,11 @@ class CountryDsImpl extends CountryDataSource {
     final response = await apiClient.get('https://restcountries.com/v3.1/all');
     final dataList = response.data as List;
     // final dataList = dataList.
-    return dataList.sublist(0, 5).map((c) => CountryModel.fromJson(c)).toList();
+    // return dataList.map((c) => CountryModel.fromJson(c)).toList();
+    return dataList
+        .sublist(0, 45)
+        .map((c) => CountryModel.fromJson(c))
+        .toList();
   }
 
   @override
